@@ -1,0 +1,5 @@
+*.csv
+*.csv.backup
+*.db
+*.sqlite3
+*.pickle
