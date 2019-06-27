@@ -1,0 +1,156 @@
+header, footer {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(238, 238, 238);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    align-items: center;
+    position: absolute;
+}
+
+header {
+    padding: 10px 16px;
+    top: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+img {
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 16px;
+    line-height: 21px;
+}
+
+h2 {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.6)
+}
+
+main {
+    height: calc(100% - 120px);
+    width: 100%;
+    top: 60px;
+    position: absolute;
+    background-color: #e5ddd5;
+    padding: 8px 0 12px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+}
+
+main::-webkit-scrollbar {
+    transition: all .5s;
+    width: 5px;
+    height: 1px;
+    z-index: 10;
+}
+  
+main::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+main::-webkit-scrollbar-thumb {
+    background: #b3ada7;
+}
+
+.bubbles {
+    padding: 0 9%;
+    margin-bottom: 10px;
+}
+
+.sent, .received {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+    padding: 6px 7px 8px 9px;
+    border-radius: 7.5px;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,.13);
+}
+
+.sent {
+    /* justify-content: flex-end; */
+    float:right;
+    background-color: #dcf8c6;
+}
+
+.received {
+    /* justify-content: flex-start; */
+    float:left;
+    background-color: #ffffff;
+}
+
+.bubble-message {
+    margin-right: 35px;
+}
+
+.bubble-time {
+    margin: -10px 0 0 auto ;
+    font-size: 11px;
+    color: rgba(0,0,0,.45);
+    height: 15px;
+    line-height: 15px;
+}
+
+footer {
+    padding: 5px 10px;
+    bottom: 0;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+#input {
+    margin: 5px 10px;
+    border-radius: 21px;
+    width: 95%;
+    max-width: 95%;
+    outline: 0;
+    border: 0;
+    box-sizing: border-box;
+    padding: 9px 12px 10px 12px;
+    background-color: #FFFFFF;
+    white-space: pre-wrap;
+    line-break: after-white-space;
+    overflow-wrap: break-word;
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Ubuntu, Cantarell, "Fira Sans", sans-serif;
+    font-size: 15px;
+}
+
+#submit-button {
+    width: 5%;
+    min-width: 50px;
+    border-radius: 0;
+    min-height: 40px;
+    max-height: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background:none;
+}
+
+svg {   
+    fill: #949a9c;
+    height: 32px;
+}
+
+#thumbsUp svg:hover {
+    fill: #00c300;
+}
+
