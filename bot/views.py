@@ -7,7 +7,7 @@ from bot.chatterbotBot import Bot
 
 chatbot = Bot()
 
-# chatbot.trainBot()
+chatbot.trainBot()
 
 def index(request):
     return render(request, 'index.html')

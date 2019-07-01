@@ -16,13 +16,17 @@ class Bot(object):
         try:
             cursor = self.conn.cursor()
             
-            cursor.execute('SELECT message, quotedMessage FROM chatdata WHERE media IS NULL')
+            print("start")
+            cursor.execute('SELECT message FROM chatdata WHERE media IS NULL AND quotedMessage IS NULL')
+            results = cursor.fetchall()
+            res = [''.join(i) for i in results]
+            trainer.train(res)
+            print("end1\n start")
+            cursor.execute('SELECT message, quotedMessage FROM chatdata WHERE media IS NULL AND quotedMessage IS NOT NULL')
             results = cursor.fetchall()
             for r in results:
-                if (r[1] == None):
-                    trainer.train(r)
-                else:
-                    self.bot.learn_answer(r[0], r[1])
+                self.learn_answer(r[0], r[1])
+            print("end")
         except sqlite3.Error as e:
             print('Error occured: ', e.args[0])
         except KeyboardInterrupt as e:
