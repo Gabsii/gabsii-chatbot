@@ -1,7 +1,7 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from chatterbot.conversation import Statement
 import sqlite3
-import pickle
 
 class Bot(object):
     def __init__(self):
@@ -16,10 +16,13 @@ class Bot(object):
         try:
             cursor = self.conn.cursor()
             
-            cursor.execute('SELECT message FROM chatdata WHERE media IS NULL')
+            cursor.execute('SELECT message, quotedMessage FROM chatdata WHERE media IS NULL')
             results = cursor.fetchall()
-            res = [''.join(i) for i in results]
-            trainer.train(res)
+            for r in results:
+                if (r[1] == None):
+                    trainer.train(r)
+                else:
+                    self.bot.learn_answer(r[0], r[1])
         except sqlite3.Error as e:
             print('Error occured: ', e.args[0])
         except KeyboardInterrupt as e:
@@ -35,6 +38,9 @@ class Bot(object):
 
     def get_answer(self, question):
         return self.bot.get_response(question)
+
+    def learn_answer(self, message, in_reply_to):
+        return self.bot.learn_response(Statement(text=message), Statement(text=in_reply_to))
 
 def main():
     Niklas = Bot()

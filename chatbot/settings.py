@@ -25,7 +25,7 @@ SECRET_KEY = '#or7uvx5f-29bjz&1%05e*)5o&k#5)g6t9y%^df)n39=%9t8-e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lab.gabsii.com']
 
 
 # Application definition
